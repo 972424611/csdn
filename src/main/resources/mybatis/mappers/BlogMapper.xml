@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aekc.csdn.mapper.BlogMapper" >
+
+    <insert id="insertBlogList" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_blog (title, time, author, content, create_time)
+        VALUES
+        <foreach collection="list" separator="," item="blog">
+            (#{blog.title}, (#{blog.time}), #{blog.author}, #{blog.content}, #{blog.createTime})
+        </foreach>;
+    </insert>
+
+    <insert id="insertBlog" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_blog (title, time, author, content, create_time)
+        VALUES (#{title}, (#{time}), #{author}, #{content}, #{createTime})
+    </insert>
+
+    <select id="selectBlogById" resultType="com.aekc.csdn.pojo.TbBlog">
+        SELECT * FROM tb_blog WHERE id = #{id}
+    </select>
+</mapper>

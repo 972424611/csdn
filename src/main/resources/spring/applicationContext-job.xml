@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 类型是博客blog，查找内容是Java -->
+    <bean class="com.aekc.csdn.crawler.CsdnCrawler">
+        <!-- 设置url {page} 是分页参数 -->
+        <constructor-arg index="0" value="https://so.csdn.net/so/search/s.do?p={page}&amp;q=Java&amp;t=blog"/>
+    </bean>
+</beans>
